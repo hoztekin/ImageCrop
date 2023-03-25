@@ -1,0 +1,82 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="card">
+    <div class="card-header">Crop Image File</div>
+        <div class="card-body">
+            <div id="cropper1"></div>
+            <input type="file" id="BrowseFile" class="form-control" value="Choose Image" accept="image/*" />
+            <button id="btnupload" style="margin-top:10px;" name="btnupload" class="btn btn-success">Crop</button>
+    </div>
+</div>
+
+
+@section Scripts
+{
+<script type="text/javascript">
+    
+    var basic = $('#cropper1').croppie
+	({
+		viewport: { width: 500, height: 500 },
+		boundary: { width: 700, height: 800 },
+		showZoomer: true,
+		url: '/DefaultImages/preview.jpg',
+		format: 'jpeg'
+	});
+
+function readFile(input) {
+	if (input.files && input.files[0]) {
+		var reader = new FileReader();
+		reader.onload = function (e) {
+			$('#cropper1').croppie('bind', {
+				url: e.target.result
+			});
+		}
+		reader.readAsDataURL(input.files[0]);
+	}
+}
+
+$('#BrowseFile').on('change', function () { readFile(this); });
+
+$('#btnupload').on('click', function () {
+
+	basic.croppie('result', 'blob').then(function (blob) {
+		var formData = new FormData();
+		formData.append('filename', 'FileName.jpeg');
+		formData.append('blob', blob);
+		var myAppUrlSettings =
+		{
+			MyUsefulUrl: '@Url.Action("SaveCropedImage", "Home")'
+		}
+
+		var request = new XMLHttpRequest();
+		request.open('POST', myAppUrlSettings.MyUsefulUrl);
+		request.send(formData);
+		request.onreadystatechange = function () {
+			if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+				var response = JSON.parse(request.responseText);
+
+				if (response.message === "Ok") {
+					alert('Photo Cropped Successfully!');
+					window.location.reload();
+				}
+
+				if (response.message === "Error") {
+					window.locaation.reload();
+				}
+			}
+		}
+	});
+});
+
+
+
+
+
+
+
+
+
+</script>
+}

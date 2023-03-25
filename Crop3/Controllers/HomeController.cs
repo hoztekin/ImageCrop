@@ -21,7 +21,7 @@ namespace Crop3.Controllers
             var img = Image.FromFile("wwwroot\\uploads\\orjinal.jpg");
             var scaleImage = ImageResize.Scale(img, 100, 100);
             scaleImage.SaveAs("wwwroot\\uploads\\resize.jpg");
-            var cropimage = ImageResize.Crop(img, 50, 50, spot: TargetSpot.Center);
+            var cropimage = ImageResize.Crop(img, 200, 200, spot: TargetSpot.Center);
             cropimage.SaveAs("wwwroot\\uploads\\crop.jpg");
             return View();
         }

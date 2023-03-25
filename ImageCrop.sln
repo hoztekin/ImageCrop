@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Crop2", "Crop2\Crop2.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crop3", "Crop3\Crop3.csproj", "{A35B0FEA-6D44-4D56-8363-D8BE6E52BDBC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crop4", "Crop4\Crop4.csproj", "{728FD569-43FF-4F10-A109-C626C19B8225}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{A35B0FEA-6D44-4D56-8363-D8BE6E52BDBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A35B0FEA-6D44-4D56-8363-D8BE6E52BDBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A35B0FEA-6D44-4D56-8363-D8BE6E52BDBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{728FD569-43FF-4F10-A109-C626C19B8225}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{728FD569-43FF-4F10-A109-C626C19B8225}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{728FD569-43FF-4F10-A109-C626C19B8225}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{728FD569-43FF-4F10-A109-C626C19B8225}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
